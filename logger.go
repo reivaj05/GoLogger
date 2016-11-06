@@ -1,4 +1,4 @@
-package logger
+package GoLogger
 
 import (
 	"errors"
