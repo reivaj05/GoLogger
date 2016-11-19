@@ -70,9 +70,9 @@ func createFields() map[string]interface{} {
 
 func createOptions(path, file string, level int) *LoggerOptions {
 	return &LoggerOptions{
-		logLevel:   level,
-		path:       path,
-		outputFile: file,
+		LogLevel:   level,
+		Path:       path,
+		OutputFile: file,
 	}
 }
 

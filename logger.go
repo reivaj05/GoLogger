@@ -17,14 +17,14 @@ const (
 )
 
 type LoggerOptions struct {
-	outputFile string
-	path       string
-	logLevel   int
+	OutputFile string
+	Path       string
+	LogLevel   int
 }
 
 // Init initializes logger with the options passed as parameter
 func Init(options *LoggerOptions) error {
-	if !wasOutputFileProvided(options.outputFile) {
+	if !wasOutputFileProvided(options.OutputFile) {
 		return errors.New("No file provided")
 	}
 	return setLoggerOptions(options)
@@ -36,12 +36,12 @@ func wasOutputFileProvided(outputFile string) bool {
 
 func setLoggerOptions(options *LoggerOptions) error {
 	logrus.SetFormatter(&logrus.JSONFormatter{})
-	file, err := openOrCreateFile(options.path, options.outputFile)
+	file, err := openOrCreateFile(options.Path, options.OutputFile)
 	if err != nil {
 		return err
 	}
 	logrus.SetOutput(file)
-	SetLogLevel(options.logLevel)
+	SetLogLevel(options.LogLevel)
 	return nil
 }
 
