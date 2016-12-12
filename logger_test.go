@@ -57,6 +57,11 @@ func (suite *loggerTestSuite) TestLogAllLevelsWithFields() {
 	LogWarning(msg, fields)
 	LogInfo(msg, fields)
 	LogDebug(msg, fields)
+	defer func() {
+		if r := recover(); r != nil {
+		}
+	}()
+	LogPanic(msg, fields)
 }
 
 func createFields() map[string]interface{} {
