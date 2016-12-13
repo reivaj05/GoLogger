@@ -47,6 +47,11 @@ func (suite *loggerTestSuite) TestLogAllLevelsWithoutFields() {
 	LogWarning(msg, nil)
 	LogInfo(msg, nil)
 	LogDebug(msg, nil)
+	defer func() {
+		if r := recover(); r != nil {
+		}
+	}()
+	LogPanic(msg, nil)
 }
 
 func (suite *loggerTestSuite) TestLogAllLevelsWithFields() {
